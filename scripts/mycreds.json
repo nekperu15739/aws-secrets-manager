@@ -1,0 +1,7 @@
+{
+  "username": "sa",
+  "password": "password",
+  "engine": "h2",
+  "host": "mem",
+  "schema": "test"
+}
