@@ -33,49 +33,29 @@ setup for cdk:
 cdk destroy
 ```
 
-
 **NOTE**
 ### Local profile:
 If you want to run this project locally we need to set up a new profile and create the infrastructure.
 
-First, running the docker compose:
+* First, running the docker compose:
 
 ```shell
 docker-compose up -d
 ```
 
-Second, create a new aws profile called localstack, should look like this:
-
-```shell
-cat .aws/config
-
-[profile localstack]
-region = us-east-1
-output = json
-```
-
-```shell
-cat .aws/credentials
-
-[profile localstack]
-aws_access_key_id = test
-aws_secret_access_key = test
-region = us-east-1
-```
-
-Third locale on "cdk" folder and execute the cdk project:
+* Second, locale on "cdk" folder and execute the cdk project: 
 
 setup for cdk:
 ```shell
-cdklocal bootstrap -v --profile localstack
+cd cdk
+npm run build
+export AWS_REGION=us-east-1
+cdklocal bootstrap
+cdklocal deploy
 ```
+aws cdk deploy --all --region us-east-1
 
-create the services:
-```shell
-cdklocal deploy --profile localstack
-```
-
-and the running the project using local profile:
+* Third, running the project using local profile:
 
 ```shell
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
