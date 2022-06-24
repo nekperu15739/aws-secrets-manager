@@ -1,7 +1,8 @@
 {
-  "username": "sa",
+  "username": "postgres",
   "password": "password",
-  "engine": "h2",
-  "host": "mem",
-  "schema": "test"
+  "engine": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "dbInstanceIdentifier": "database-1"
 }
